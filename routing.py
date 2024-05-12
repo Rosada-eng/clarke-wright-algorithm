@@ -22,7 +22,7 @@ class Route:
         self.capacity: int = capacity
 
     def __str__(self):
-        return f"Route: Load: {self.load:4.0f} \t Distance: {self.distance:6.0f} \t" + f"[{' -> '.join([str(node.id) for node in self.nodes])}]"
+        return f"Route: [{' -> '.join([str(node.id) for node in self.nodes])}] \t Load: {self.load:4.0f} Distance: {self.distance:6.0f}"
 
     def __repr__(self):
         return self.__str__()
@@ -51,10 +51,16 @@ class Route:
         return load
 
     def __add_last_node(self, node:Node):
-        self.nodes.append(node)
+        if len(self.nodes) < 3:
+            self.nodes.append(node)
+        else:
+            self.nodes.insert(-1, node)
     
     def __add_first_node(self, node:Node):
-        self.nodes.insert(0, node)
+        if len(self.nodes) < 3:
+            self.nodes.append(node)
+        else:
+            self.nodes.insert(1, node)
     
     def add_node(self, node:Node, beginning:bool = False):
         if beginning:
@@ -139,7 +145,7 @@ def build_initial_routes(deposit:Node, nodes:list[Node], capacity:int):
     for idx, node in enumerate(nodes[1:]):
         route = Route(id=idx, capacity=capacity)
 
-        route.add_node(deposit, beginning=True)
+        route.add_node(deposit)
         route.add_node(node)
         route.add_node(deposit)
 
