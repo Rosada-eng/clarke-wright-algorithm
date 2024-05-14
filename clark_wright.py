@@ -1,7 +1,5 @@
-
-
 class ClarkWright:
-    MAX_CAPACITY = 20
+    DEPOSIT_CAPACITY = 20
 
     @staticmethod
     def calculate_savings(distances):
@@ -37,11 +35,11 @@ class ClarkWright:
     
     @staticmethod
     def can_store_node(node_idx, route, demands):
-        return sum([demands[node] for node in route]) + demands[node_idx] <= ClarkWright.MAX_CAPACITY
+        return sum([demands[node] for node in route]) + demands[node_idx] <= ClarkWright.DEPOSIT_CAPACITY
     
     @staticmethod
     def can_store_routes(route_i, route_j, demands):
-        return sum([demands[node] for node in route_i] + [demands[node] for node in route_j]) <= ClarkWright.MAX_CAPACITY
+        return sum([demands[node] for node in route_i] + [demands[node] for node in route_j]) <= ClarkWright.DEPOSIT_CAPACITY
 
     @staticmethod
     def calc_routes(distances, demands):
@@ -116,6 +114,7 @@ class ClarkWright:
 
                     elif ClarkWright.is_on_left_edge(node_i, route_i) and ClarkWright.is_on_left_edge(node_j, route_j):
                         # i and j are on the left edge of their respective routes
+                        # reverse route_j and merge it into route_i
                         route_i.pop(0)
                         route_j.pop(0)
                         route_j.reverse()
@@ -124,6 +123,7 @@ class ClarkWright:
 
                     elif ClarkWright.is_on_right_edge(node_i, route_i) and ClarkWright.is_on_right_edge(node_j, route_j):
                         # i and j are on the right edge of their respective routes
+                        # reverse route_i and merge it into route_j
                         route_i.pop(-1)
                         route_j.pop(-1)
                         route_j.reverse()
@@ -146,7 +146,7 @@ class ClarkWright:
         new_routes = []
 
         for client in non_attended_clients:
-            if demands[client] > ClarkWright.MAX_CAPACITY:
+            if demands[client] > ClarkWright.DEPOSIT_CAPACITY:
                 continue
 
             new_routes.append([0, client, 0])
