@@ -1,5 +1,5 @@
 class ClarkWright:
-    DEPOSIT_CAPACITY = 20
+    DEPOSIT_CAPACITY = 32
 
     @staticmethod
     def calculate_savings(distances):
