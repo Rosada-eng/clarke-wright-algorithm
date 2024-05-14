@@ -21,7 +21,7 @@ capcities = [
 
 
 if __name__ == "__main__":
-    from attribution import ParallelAttribution
+    from parallel_attribution import ParallelAttribution
 
     clients_in_deposits = ParallelAttribution.attribuite(clients_to_deposit, demands, capcities)
 
