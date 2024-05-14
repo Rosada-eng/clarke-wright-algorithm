@@ -31,7 +31,6 @@ class ParallelAttribution:
         urgencies = ParallelAttribution.calc_urgency(clients_to_deposit)
 
         clients_in_deposits = [[] for _ in capacities]
-        overload_deposits = []
         attributed_client = []
 
         for client, _ in urgencies:
