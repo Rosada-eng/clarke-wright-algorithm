@@ -1,24 +1,3 @@
-clients_to_deposit = [
-    [311, 462, 371, 182],
-    [172, 136, 428, 162],
-    [283, 379, 380, 190],
-    [289, 80, 63, 136],
-    [385, 481, 274, 384],
-    [83, 292, 265, 214],
-    [135, 401, 123, 346],
-    [167, 362, 295, 73],
-    [394, 349, 290, 450],
-    [461, 187, 445, 50],
-]
-
-demands = [
-    12, 10, 8, 6, 4, 2, 14, 16, 18, 20
-]
-
-capcities = [
-    30, 32, 30, 25
-]
-
 class ParallelAttribution:
     @staticmethod
     def can_store_client(deposit, capcities, client, demands, clients_in_deposits):
@@ -85,10 +64,4 @@ class ParallelAttribution:
     def all_clients_attributed(attributed_clients, clients_to_deposit):
         if not len(attributed_clients) == len(clients_to_deposit):
             raise Exception('Not all clients were attributed. Check deposit capacities.')
-
-if __name__ == "__main__":
-    clients_in_deposits = ParallelAttribution.attribuite(clients_to_deposit, demands, capcities)
-
-
-
     
