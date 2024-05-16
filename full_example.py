@@ -6,7 +6,7 @@ N_DEPOSITS = 4
 
 clients_to_deposits_distances = distances_to_multiple_deposits(N_CLIENTS, N_DEPOSITS)
 
-clients_demands = [random.randint(5, 20) for _ in range(N_CLIENTS)]
+clients_demands = [0] + [random.randint(5, 20) for _ in range(N_CLIENTS)]
 
 depot_capcities = [120, 200, 150, 220]
 

@@ -18,7 +18,7 @@ distances = [
 
 # Demands of allocated clients
 demands = [
-    19, 19, 9, 8, 5, 12, 6, 15, 20, 12, 15, 19, 17, 10
+    0, 19, 19, 9, 8, 5, 12, 6, 15, 20, 12, 15, 19, 17, 10
 ]
 
 # One of the resulted allocation from `attribution_example.py`
