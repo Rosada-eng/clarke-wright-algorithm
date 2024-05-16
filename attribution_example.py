@@ -1,3 +1,4 @@
+# distance of clients to deposits
 clients_to_deposit = [
     [311, 462, 371, 182],
     [172, 136, 428, 162],
@@ -11,20 +12,28 @@ clients_to_deposit = [
     [461, 187, 445, 50],
 ]
 
+# demands of clients
 demands = [
     12, 10, 8, 6, 4, 2, 14, 16, 18, 20
 ]
 
-capcities = [
+# capacities of deposits
+depot_capcities = [
     30, 42, 36, 38
 ]
 
+depot_names = [
+    "dp_Recife",
+    "dp_Imperatriz",
+    "dp_Limeira",
+    "dp_São Carlos"
+]
 
 if __name__ == "__main__":
     from parallel_attribution import ParallelAttribution
 
-    clients_in_deposits = ParallelAttribution.attribuite(clients_to_deposit, demands, capcities)
+    clients_in_deposits = ParallelAttribution.attribuite(clients_to_deposit, demands, depot_capcities)
 
     for deposit, clients in enumerate(clients_in_deposits):
         total_demand = sum([demands[client] for client in clients])
-        print(f'Deposit {deposit}: [{clients}] ({total_demand})')
+        print(f'Deposit {depot_names[deposit]}: \t clients: {clients} \t total demand: {total_demand}')

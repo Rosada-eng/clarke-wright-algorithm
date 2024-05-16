@@ -50,11 +50,6 @@ class ParallelAttribution:
                     attributed_client.append(client)
                     break
 
-
-        for deposit, clients in enumerate(clients_in_deposits):
-            total_demand = sum([demands[client] for client in clients])
-            print(f'Deposit {deposit}: [{clients}] ({total_demand})')
-
         ParallelAttribution.all_clients_attributed(attributed_client, clients_to_deposit)
 
         return clients_in_deposits
