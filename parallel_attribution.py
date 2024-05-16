@@ -57,5 +57,5 @@ class ParallelAttribution:
     @staticmethod
     def all_clients_attributed(attributed_clients, clients_to_deposit):
         if not len(attributed_clients) == len(clients_to_deposit):
-            raise Exception('Not all clients were attributed. Check deposit capacities.')
+            raise Exception('Not all clients were attributed. Check deposit capacities or try again.')
     
