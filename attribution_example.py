@@ -36,4 +36,4 @@ if __name__ == "__main__":
 
     for deposit, clients in enumerate(clients_in_deposits):
         total_demand = sum([demands[client] for client in clients])
-        print(f'Deposit {depot_names[deposit]}: \t clients: {clients} \t total demand: {total_demand}')
+        print(f'Deposit {depot_names[deposit]}: \t clients: {clients} \t demand: {total_demand} / {depot_capcities[deposit]}')
