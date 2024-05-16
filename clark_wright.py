@@ -1,5 +1,5 @@
 class ClarkWright:
-    DEPOSIT_CAPACITY = 100
+    VEHICLE_CAPACITY = 100
 
     @staticmethod
     def calculate_savings(distances):
@@ -35,11 +35,11 @@ class ClarkWright:
     
     @staticmethod
     def can_store_node(node_idx, route, demands):
-        return sum([demands[node] for node in route]) + demands[node_idx] <= ClarkWright.DEPOSIT_CAPACITY
+        return sum([demands[node] for node in route]) + demands[node_idx] <= ClarkWright.VEHICLE_CAPACITY
     
     @staticmethod
     def can_store_routes(route_i, route_j, demands):
-        return sum([demands[node] for node in route_i] + [demands[node] for node in route_j]) <= ClarkWright.DEPOSIT_CAPACITY
+        return sum([demands[node] for node in route_i] + [demands[node] for node in route_j]) <= ClarkWright.VEHICLE_CAPACITY
 
     @staticmethod
     def calc_routes(distances, demands):
@@ -146,7 +146,7 @@ class ClarkWright:
         new_routes = []
 
         for client in non_attended_clients:
-            if demands[client] > ClarkWright.DEPOSIT_CAPACITY:
+            if demands[client] > ClarkWright.VEHICLE_CAPACITY:
                 continue
 
             new_routes.append([0, client, 0])
